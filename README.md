@@ -4,6 +4,19 @@ A tiny macOS app that copies **only the new files** from a USB-connected camera 
 
 Built because Apple's Image Capture kept stalling on large video files (over 4 GB) from a Nikon Z6. Camera Import uses [gphoto2](http://gphoto.org/) for the transfer, which handles big files properly.
 
+## Why you might want this
+
+If you've ever plugged a camera into a Mac to grab your footage, you've probably run into at least one of these:
+
+- **Image Capture stalls on big video files.** Cameras talk to computers over USB using a protocol (PTP) that was designed with a 4 GB per-file limit. Modern cameras happily record 5, 7 or 10 GB clips, and macOS's built-in import tools often hang on them forever with a 0-byte file and no error.
+- **Re-importing everything, or picking files by hand.** The card fills up over several shoots. Image Capture and Photos don't reliably tell you which files you already copied to *your* project folder, so you either drag everything again and end up with duplicates like `DSC_1234 1.MOV`, or scroll through hundreds of thumbnails selecting the new ones.
+- **Silent failures.** A loose cable, a sleeping camera or a full disk can leave you with truncated or empty files that look fine in Finder until you open them in your editor.
+- **No card reader.** The usual advice is "just buy a card reader". For XQD and CFexpress cards that's an extra piece of kit, when the camera and its cable should be enough.
+
+Camera Import fixes those in one click: it pulls only what's missing from the folder you choose, copes with files over 4 GB, refuses to start when there isn't enough space, and checks every file against the camera at the end so you know the import is complete before you format the card.
+
+It's handy for videographers and photographers who offload straight from the camera: shooting days, events, vlogs, or anyone tired of babysitting Image Capture.
+
 ## What it does
 
 1. Asks which folder to import into (remembers the last one).
